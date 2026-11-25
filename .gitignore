@@ -1,0 +1,30 @@
+# 运行时数据
+data/
+*.log
+scripts/toy-state.json
+scripts/toy-ping.json
+scripts/toy-pulse-progress.json
+scripts/toy-pulse-stop.flag
+scripts/toy-device.json
+state.json
+events.jsonl
+
+# 备份
+*.bak
+*.bak-*
+*.orig
+*.orig-*
+
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 临时
+*.tmp
+_tmp_*

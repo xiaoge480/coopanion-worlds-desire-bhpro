@@ -1,0 +1,35 @@
+{
+  "name": "cortico-world-bhpro",
+  "version": "0.1.5",
+  "type": "module",
+  "description": "Cortico World: 控制 TF-BHPRO 蓝牙设备（模式 / 强度 / 停止），不需要手机 App。",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./webui": "./src/webui-v2.js"
+  },
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "displayName": "外设（TF-BHPRO）",
+    "describe": "describe.json",
+    "webUiClient": "src/webui-v2.js"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "describe.json",
+    "README.md"
+  ],
+  "keywords": [
+    "cortico-world",
+    "cortico",
+    "ble",
+    "bluetooth",
+    "tf-bhpro"
+  ]
+}

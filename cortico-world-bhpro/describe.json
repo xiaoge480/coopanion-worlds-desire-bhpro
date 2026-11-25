@@ -1,0 +1,79 @@
+{
+  "tools": [
+    {
+      "name": "toy_set",
+      "description": "设定 TF-BHPRO 设备的模式与强度。模式 1-4 是四种不同的震动花样，强度 0-15。只给模式就只换花样，强度会保持上一次的值。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pattern": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4,
+            "description": "花样编号 1-4。不给就是 1。"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 15,
+            "description": "强度 0-15。不给就保持当前强度不变。"
+          }
+        }
+      },
+      "tags": [
+        "write"
+      ],
+      "summary": {
+        "zh": "设定设备的花样与强度。",
+        "en": "Set the device pattern and intensity."
+      }
+    },
+    {
+      "name": "toy_stop",
+      "description": "立刻停止 TF-BHPRO 设备的震动。",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      },
+      "tags": [
+        "write"
+      ],
+      "summary": {
+        "zh": "让设备停下来。",
+        "en": "Stop the device."
+      }
+    },
+    {
+      "name": "toy_scan",
+      "description": "扫一遍附近的蓝牙设备，找出名字像 TF-BHPRO / BHPRO / 春风 的那个，把它记下来（之后各工具就用这个地址）。设备刚开机、或者换了地方，可以先扫一次。扫一次约 10 秒。",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      },
+      "tags": [
+        "read"
+      ],
+      "summary": {
+        "zh": "扫附近的设备，找到就记下地址。",
+        "en": "Scan nearby BLE devices and remember the matching one."
+      }
+    },
+    {
+      "name": "toy_status",
+      "description": "查 TF-BHPRO 设备现在的状态：有没有找到设备、地址是什么、上一次下发的模式与强度。不会让设备震动。",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      },
+      "tags": [
+        "read"
+      ],
+      "summary": {
+        "zh": "查设备连没连上、现在的模式与强度。",
+        "en": "Report device connection and last pattern/level."
+      }
+    }
+  ],
+  "events": [],
+  "prompts": []
+}

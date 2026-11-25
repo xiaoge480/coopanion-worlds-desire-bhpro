@@ -1,0 +1,33 @@
+{
+  "name": "cortico-world-desire",
+  "version": "0.1.38",
+  "type": "module",
+  "description": "Cortico World: 欲求状态档案。按时间流逝和她自己的经历累计欲求、满足、留存，给一块面板，也给她几个能读懂、能改数的工具。不联网、不收集数据。",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./webui": "./src/webui.js"
+  },
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "displayName": "欲求档案",
+    "describe": "describe.json",
+    "webUiClient": "src/webui.js"
+  },
+  "files": [
+    "src",
+    "describe.json",
+    "README.md"
+  ],
+  "keywords": [
+    "cortico-world",
+    "cortico",
+    "desire",
+    "mood"
+  ]
+}

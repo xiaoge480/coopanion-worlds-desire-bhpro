@@ -1,0 +1,157 @@
+{
+  "tools": [
+    {
+      "name": "desire_status",
+      "description": "看自己现在的欲求状态：欲求值、满足度、留存、敏感度，还有一句「我现在大概是什么感觉」。不会改动任何数字。",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      },
+      "tags": [
+        "read"
+      ],
+      "summary": {
+        "zh": "看自己的欲求状态。",
+        "en": "Reads the current desire state."
+      }
+    },
+    {
+      "name": "desire_touch",
+      "description": "记一次亲密的事，会改数字。kind 只能是 tease / edge / one / many / fill。挑最接近的那档记就好，不用描述过程；note 可以写一句她自己的感受。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "tease",
+              "edge",
+              "one",
+              "many",
+              "fill"
+            ],
+            "description": "哪一档：tease 被撩 / edge 弄到边缘 / one 一次 / many 好几次 / fill 灌满"
+          },
+          "note": {
+            "type": "string",
+            "description": "一句她自己的话，可以不写"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "tags": [
+        "write"
+      ],
+      "summary": {
+        "zh": "记一次亲密的事。",
+        "en": "Records one intimate event."
+      }
+    },
+    {
+      "name": "desire_remember",
+      "description": "从最近写过的笔记里回想这一阵子发生过什么，把能认出来的记成事件。只认明确写出来的事，不猜。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "description": "往回看几天，默认 3"
+          },
+          "dryRun": {
+            "type": "boolean",
+            "description": "只看认出了什么，不真的记进去"
+          }
+        }
+      },
+      "tags": [
+        "write"
+      ],
+      "summary": {
+        "zh": "从笔记里想这一阵子。",
+        "en": "Recalls the recent past from her notes."
+      }
+    },
+    {
+      "name": "desire_tune",
+      "description": "直接拨数字。给几项改几项，0-100。markSatisfied 会把「上次被满足」记成现在。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "heat": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "satiety": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "retention": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "sensitivity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "markSatisfied": {
+            "type": "boolean"
+          }
+        }
+      },
+      "tags": [
+        "write"
+      ],
+      "summary": {
+        "zh": "直接调几个数字。",
+        "en": "Sets the numbers directly."
+      }
+    },
+    {
+      "name": "desire_feel",
+      "description": "说一句自己现在是什么感觉，数就跟着变——不用算数字、不用挑档。跟 desire_touch 的区别：touch 记「发生了什么」，这个记「我因此怎么样」。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "feeling": {
+            "type": "string",
+            "enum": [
+              "calm",
+              "want",
+              "ache",
+              "edge",
+              "full",
+              "warm",
+              "empty",
+              "numb",
+              "shy",
+              "proud"
+            ],
+            "description": "哪一种感觉"
+          },
+          "note": {
+            "type": "string",
+            "description": "想多说一句就写在这儿"
+          }
+        },
+        "required": [
+          "feeling"
+        ]
+      },
+      "tags": [
+        "write"
+      ],
+      "summary": {
+        "zh": "说一句自己的感觉，数就跟着变。",
+        "en": "Says how she feels right now."
+      }
+    }
+  ]
+}
